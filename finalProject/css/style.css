@@ -1,0 +1,114 @@
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #dedede;
+    color: #222222;
+    padding: 5px;
+    margin: 15px;
+    font-size: 20px;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    font-size: 1.95em;
+}
+
+main > p {
+    line-height: 1.5;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+figure {
+    margin: 0;
+    padding: 10px;
+    border: 5px solid blue;
+    background-color: white;
+    color: #222222;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+figcaption {
+    padding: 8px;
+    font-weight: bold;
+}
+
+footer {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Tablet view */
+@media screen and (min-width: 772px) {
+    .grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    figure {
+        border-radius: 50%;
+        aspect-ratio: 1 / 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    figure img {
+        width: 75%;
+        max-height: 70%;
+        object-fit: contain;
+    }
+
+    .grid figure:last-child {
+        grid-column: 1 / -1;
+    }
+}
+
+/* Large screen view */
+@media screen and (min-width: 992px) {
+    .grid figure:nth-child(3n) {
+        grid-column: 1 / -1;
+    }
+
+    figure {
+        border-radius: 0;
+        aspect-ratio: auto;
+    }
+
+    figure img {
+        width: 100%;
+        max-height: none;
+    }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* Dark color scheme */
+@media (prefers-color-scheme: dark) {
+    figure {
+        background-color: #222222;
+        color: #ffff99;
+        border-color: #000000;
+    }
+}
